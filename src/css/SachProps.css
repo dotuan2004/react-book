@@ -1,0 +1,86 @@
+/* Định dạng chung cho thẻ card */
+.card {
+    height: 400px; /* Chiều cao cố định cho card */
+    display: flex;
+    flex-direction: column; /* Đảm bảo nội dung trong card xếp theo cột */
+    justify-content: space-between; /* Căn đều khoảng cách nội dung */
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Bo góc cho đẹp */
+    margin: 10px;
+}
+
+/* Ảnh bên trong thẻ card */
+.card-img-top {
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    height: 200px; /* Chiều cao cố định */
+    object-fit: cover; /* Cắt ảnh vừa khung nhưng không làm méo ảnh */
+    object-position: center; /* Canh giữa nội dung ảnh */
+    border-top-left-radius: 8px; /* Bo góc trên */
+    border-top-right-radius: 8px;
+}
+
+/* Nội dung bên trong card */
+.card-body {
+    flex-grow: 1; /* Nội dung có thể dãn theo chiều cao card */
+    padding: 15px;
+    text-align: center;
+}
+
+/* Định dạng tiêu đề và mô tả */
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+/* Định dạng giá tiền */
+.price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.price .original-price {
+    color: #999;
+    text-decoration: line-through;
+    margin-right: 10px;
+}
+
+.price .discounted-price {
+    color: #e63946;
+    font-weight: bold;
+}
+
+/* Nút bấm */
+.btn-block {
+    width: 100%;
+    padding: 8px 0;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
