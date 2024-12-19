@@ -10,6 +10,7 @@ import { DangKyNguoiDung } from './layout/user/DangKyNguoiDung';
 import ChiTietSanPham from './layout/homepage/product/ChiTietSanPham';
 import DangNhap from './layout/user/DangNhap';
 import Footer from './layout/header-footer/Footer';
+import Chat from './layout/homepage/components/Chat';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path="/sach/:maSach" element={<ChiTietSanPham />} />
             <Route path="/dangnhap" element={<DangNhap />} />
             <Route path="/test" element={<Test />} />
+            <Route path="/chat" element={<Chat />} />
             
             
           </Routes>

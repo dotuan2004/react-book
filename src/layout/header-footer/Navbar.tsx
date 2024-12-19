@@ -110,6 +110,35 @@ function Navbar({ tuKhoaTimKiem, setTuKhoaTimKiem }: NavbarProps) {
                 </li>
               </ul>
             </li>
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown1"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Chức Năng Admin
+              </a>
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown1">
+                <li>
+                  <NavLink className="dropdown-item" to="/1">
+                    1
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="dropdown-item" to="/2">
+                    2
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="dropdown-item" to="/3">
+                   3
+                  </NavLink>
+                </li>
+              </ul>
+            </li>
           </ul>
           <div className="d-flex" role="search">
             <input
