@@ -11,6 +11,7 @@ import ChiTietSanPham from './layout/homepage/product/ChiTietSanPham';
 import DangNhap from './layout/user/DangNhap';
 import Footer from './layout/header-footer/Footer';
 import Chat from './layout/homepage/components/Chat';
+import SachForm_Admin from './layout/admin/SachForm';
 
 
 function App() {
@@ -30,8 +31,9 @@ function App() {
             <Route path="/dangnhap" element={<DangNhap />} />
             <Route path="/test" element={<Test />} />
             <Route path="/chat" element={<Chat />} />
+            <Route path="/admin/them-sach" element={<SachForm_Admin />} />
             
-            
+          
           </Routes>
           <Footer />
         </BrowserRouter>
