@@ -6,6 +6,8 @@ import { error } from "console";
 import HinhAnhModel from "../../../models/HinhAnhModel";
 import { layToanBoAnhCuaMotSach } from "../../../api/HinhAnhApi";
 import HinhAnhSanPham from "../components/HinhAnhSanPham";
+import Review from "../../../models/Review";
+import DanhGia from "../components/Review";
 
 const ChiTietSanPham: React.FC = () => {
     // Lấy mã sách từ URL và đảm bảo là số
@@ -96,6 +98,10 @@ const ChiTietSanPham: React.FC = () => {
                         </div>
                     </div>
                 </div>
+
+            </div>
+            <div>
+                <DanhGia/>   
             </div>
         </div>
     );

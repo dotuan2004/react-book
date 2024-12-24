@@ -2,11 +2,15 @@ import React from "react";
 import SachModel from "../models/SachModel";
 import { promises } from "dns";
 import myRequest from "./Request";
+import Review from "../models/Review";
 
 interface KetQuaInterface {
     KetQua: SachModel[];
     tongSoTrang: number;
     tongSoSach: number
+}
+interface ReviewInterface{
+    KetquaReview:Review[];
 }
 async function  laySach(duongDan: string): Promise<KetQuaInterface> {
     const KetQua: SachModel[] = [];
@@ -83,3 +87,35 @@ export async function laySachTheoMaSach(maSach: number): Promise<SachModel | nul
         return null;
     }
 }
+export async function layReviewSachByMa(maSach: number): Promise<ReviewInterface | null> {
+    const duongDan = `http://localhost:8000/su-danh-gia/search/findByBook_BookId?maSach=${maSach}`;
+    try {
+        const response = await fetch(duongDan);
+        
+        if (!response.ok) {
+            throw new Error("Gặp lỗi trong quá trình gọi API lấy đánh giá!");
+        }  
+
+        const responseData = await response.json();
+        const reviewData = responseData._embedded?.reviews || [];
+
+        console.log("api data", reviewData);
+
+        const KetquaReview: Review[] = reviewData.map((review: any) => {
+            return new Review(
+                review.username, // Lấy username từ API
+                review.content,  // Lấy content từ API
+                review.id,       // Giả sử id của đánh giá là 'id'
+                review.rating    // Lấy rating từ API
+            );
+        });
+
+        return { KetquaReview };  // Trả về đúng kiểu ReviewInterface
+    } catch (error) {
+        console.error("Error", error);
+        return null;
+    }
+}
+
+
+

@@ -12,6 +12,8 @@ import DangNhap from './layout/user/DangNhap';
 import Footer from './layout/header-footer/Footer';
 import Chat from './layout/homepage/components/Chat';
 import SachForm_Admin from './layout/admin/SachForm';
+import ReviewComponent from './layout/homepage/components/Review';
+import Review from './layout/homepage/components/Review';
 
 
 function App() {
@@ -32,7 +34,7 @@ function App() {
             <Route path="/test" element={<Test />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/admin/them-sach" element={<SachForm_Admin />} />
-            
+            <Route path="/danhgia/:maSach" element={<Review />} />
           
           </Routes>
           <Footer />
