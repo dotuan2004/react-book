@@ -7,8 +7,9 @@ export async function layAnhCua1Sach(duongDan:string):Promise<HinhAnhModel[]> {
     const KetQua: HinhAnhModel[] = [];
     
     const response = await myRequest(duongDan);
+    console.log("Phản hồi từ API:", response);
     const responseData = response._embedded.images;
-    console.log(responseData);
+    console.log("Dữ liệu hình ảnh:", responseData);
     for (const Key in responseData) {
         KetQua.push({
 

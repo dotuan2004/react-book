@@ -47,49 +47,118 @@ function DangNhap() {
   };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
-      <div className="card" style={{ width: "30rem" }}>
-        <div className="card-body">
-          <h5 className="card-title text-center mb-4">Đăng Nhập</h5>
-          <form onSubmit={handleLogin}>
-            <div className="mb-3">
-              <label htmlFor="username" className="form-label">Tên đăng nhập</label>
-              <input
-                type="text"
-                className="form-control"
-                id="username"
-                placeholder="Nhập tên đăng nhập"
-                required
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
+    <>
+      <div style={{ height: "100vh", paddingTop: "2rem" }}>
+        <div className="mx-auto" style={{ width: "30rem" }}>
+          <div
+            className="p-4"
+            style={{
+              backgroundColor: "#f8e6e9", // Hồng nhạt hơn
+              borderRadius: "8px",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+            }}
+          >
+            <h5 className="text-center">Đăng Nhập</h5>
+            <form onSubmit={handleLogin}>
+              <div className="mb-3">
+                <label htmlFor="username" className=""></label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="username"
+                  placeholder="Nhập tên đăng nhập"
+                  required
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="password" className="form-label"></label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  placeholder="Nhập mật khẩu"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              <div className="mb-3 form-check">
+                <input type="checkbox" className="form-check-input" id="rememberMe" />
+                <label className="form-check-label" htmlFor="rememberMe">Ghi nhớ đăng nhập</label>
+              </div>
+              <button type="submit" className="btn btn-primary w-100">Đăng Nhập</button>
+              {error && (
+                <div
+                  style={{
+                    color: "red",
+                    marginTop: "10px",
+                    textAlign: "center",
+                  }}
+                >
+                  {error}
+                </div>
+              )}
+            </form>
+            <div className="mt-3 text-center">
+              <a href="#">Quên mật khẩu?</a>
             </div>
-            <div className="mb-3">
-              <label htmlFor="password" className="form-label">Mật khẩu</label>
-              <input
-                type="password"
-                className="form-control"
-                id="password"
-                placeholder="Nhập mật khẩu"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <div className="mb-3 form-check">
-              <input type="checkbox" className="form-check-input" id="rememberMe" />
-              <label className="form-check-label" htmlFor="rememberMe">Ghi nhớ đăng nhập</label>
-            </div>
-            <button type="submit" className="btn btn-primary w-100">Đăng Nhập</button>
-            {error && <div style={{ color: "red", marginTop: "10px", textAlign: "center" }}>{error}</div>}
-          </form>
-          <div className="mt-3 text-center">
-            <a href="#">Quên mật khẩu?</a>
           </div>
         </div>
       </div>
-    </div>
+      <style>
+        {`
+          body {
+            color: #fff;
+          }
+  
+          h5 {
+            color: #333;
+          }
+  
+          .form-control {
+            background-color: #fbe9e7; /* Hồng nhạt hơn */
+            border: 1px solid #f48fb1;
+            color: #333;
+          }
+  
+          .form-control:focus {
+            border-color: #f06292;
+            box-shadow: 0 0 5px #f06292;
+          }
+  
+          .btn-primary {
+            background-color: #ec407a;
+            border-color: #d81b60;
+          }
+  
+          .btn-primary:hover {
+            background-color: #d81b60;
+          }
+  
+          .form-check-label {
+            color: #333;
+          }
+  
+          a {
+            color: #ad1457;
+          }
+  
+          a:hover {
+            color: #880e4f;
+          }
+  
+          .mx-auto {
+            margin-top: 2rem; /* Tăng khoảng cách so với nav */
+          }
+        `}
+      </style>
+    </>
   );
+  
+  
+
 }
 
 export default DangNhap;

@@ -124,12 +124,9 @@ export function DangKyNguoiDung() {
     };
 
     return (
-        <div className="container my-5 d-flex justify-content-center">
-            <div
-                className="card shadow-lg p-4"
-                style={{ maxWidth: "600px", width: "100%", borderRadius: "15px" }}
-            >
-                <h2 className="text-center mb-4">Đăng Ký</h2>
+        <div className="outer-container" style={{ padding: '20px', backgroundColor: "pink" }}>
+            <div className="container" style={{ maxWidth: '500px', margin: '0 auto', backgroundColor: 'white', padding: '20px', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+                <h2>Đăng Ký</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="form-floating mb-3">
                         <input
@@ -141,10 +138,11 @@ export function DangKyNguoiDung() {
                                 setTenDangNhap(e.target.value);
                                 setErrorTenDangNhap("");
                             }}
+                            style={{ borderColor: errorTenDangNhap ? "#e83e8c" : "" }}
                         />
                         <label>Tên Đăng Nhập</label>
                         {errorTenDangNhap && (
-                            <div className="invalid-feedback">{errorTenDangNhap}</div>
+                            <div className="invalid-feedback" style={{ color: "#e83e8c" }}>{errorTenDangNhap}</div>
                         )}
                     </div>
                     <div className="form-floating mb-3">
@@ -157,9 +155,10 @@ export function DangKyNguoiDung() {
                                 setEmail(e.target.value);
                                 setErrorEmail("");
                             }}
+                            style={{ borderColor: errorEmail ? "#e83e8c" : "" }}
                         />
                         <label>Email</label>
-                        {errorEmail && <div className="invalid-feedback">{errorEmail}</div>}
+                        {errorEmail && <div className="invalid-feedback" style={{ color: "#e83e8c" }}>{errorEmail}</div>}
                     </div>
                     <div className="form-floating mb-3">
                         <input
@@ -171,10 +170,11 @@ export function DangKyNguoiDung() {
                                 setSoDienThoai(e.target.value);
                                 setErrorSoDienThoai("");
                             }}
+                            style={{ borderColor: errorSoDienThoai ? "#e83e8c" : "" }}
                         />
                         <label>Số Điện Thoại</label>
                         {errorSoDienThoai && (
-                            <div className="invalid-feedback">{errorSoDienThoai}</div>
+                            <div className="invalid-feedback" style={{ color: "#e83e8c" }}>{errorSoDienThoai}</div>
                         )}
                     </div>
                     <div className="form-floating mb-3">
@@ -187,9 +187,10 @@ export function DangKyNguoiDung() {
                                 setMatKhau(e.target.value);
                                 setErrorMatKhau("");
                             }}
+                            style={{ borderColor: errorMatKhau ? "#e83e8c" : "" }}
                         />
                         <label>Mật Khẩu</label>
-                        {errorMatKhau && <div className="invalid-feedback">{errorMatKhau}</div>}
+                        {errorMatKhau && <div className="invalid-feedback" style={{ color: "#e83e8c" }}>{errorMatKhau}</div>}
                     </div>
                     <div className="form-floating mb-3">
                         <input
@@ -210,11 +211,11 @@ export function DangKyNguoiDung() {
                             accept="image/*"
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary w-100 rounded-pill">
+                    <button type="submit" className="btn btn-primary w-100 rounded-pill" style={{ backgroundColor: "#e83e8c", borderColor: "#e83e8c" }}>
                         Đăng Ký
                     </button>
-                    <div style={{ color: "green" }}>{thongBao}
-
+                    <div style={{ color: "green" }}>
+                        {thongBao}
                     </div>
                 </form>
             </div>

@@ -83,7 +83,7 @@ const DanhGia: React.FC = () => {
 
   return (
     <div className="review-container">
-      <h3 className="review-title">Đánh giá</h3>
+      <h3 className="review-title">Đánh giá Sản Phẩm</h3>
       <ul className="review-list">
         {reviews.map((review, index) => (
           <li key={index} className="review-item">
@@ -130,53 +130,68 @@ const DanhGia: React.FC = () => {
           .review-container {
             font-family: Arial, sans-serif;
             margin: 20px;
-            padding: 10px;
+            padding: 20px;
+            background: #ffe6f0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
           }
           .review-title {
             text-align: center;
-            color: #333;
+            color: #ff4081;
+            font-size: 1.8em;
+            font-weight: bold;
           }
           .review-list {
             list-style: none;
             padding: 0;
-            margin: 10px 0;
+            margin: 20px 0;
           }
           .review-item {
             padding: 10px;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #ff99c8;
+            color: #333;
           }
           .review-username {
-            font-size: 1.1em;
-            color: #007bff;
+            font-size: 1.2em;
+            color: #ff4081;
+            font-weight: bold;
           }
           .input-group {
-            margin: 10px 0;
+            margin: 15px 0;
           }
           .input-field, .textarea-field {
             width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
+            padding: 10px;
+            border: 1px solid #ff99c8;
             border-radius: 4px;
             margin-top: 5px;
+            font-size: 1em;
+            color: #333;
+            background: #fffafc;
           }
           .textarea-field {
-            height: 80px;
+            height: 100px;
           }
           .submit-button {
-            background-color: #007bff;
+            background-color: #ff4081;
             color: white;
-            padding: 10px 15px;
+            padding: 12px 20px;
             border: none;
             border-radius: 4px;
+            font-size: 1em;
             cursor: pointer;
+            display: block;
+            width: 100%;
+            text-align: center;
           }
           .submit-button:hover {
-            background-color: #0056b3;
+            background-color: #e83775;
           }
         `}
       </style>
     </div>
   );
+
 };
 
 export default DanhGia;

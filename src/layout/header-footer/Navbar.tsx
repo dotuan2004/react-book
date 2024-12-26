@@ -55,7 +55,7 @@ function Navbar({ tuKhoaTimKiem, setTuKhoaTimKiem }: NavbarProps) {
   let duLieuAnh: string = "";
   if(anh[0]&&anh[0].avatar){
     duLieuAnh=anh[0].avatar;
-}
+  }
 
   // Kiểm tra xem anh[0] có tồn tại và có thuộc tính avatar hay không
   
@@ -154,10 +154,11 @@ function Navbar({ tuKhoaTimKiem, setTuKhoaTimKiem }: NavbarProps) {
             </button>
           </div>
           {isLoggedIn ? (
+            
             <div className="d-flex align-items-center">
               <img
                 src={`data:image/png;base64,${duLieuAnh}`} // Avatar từ state hoặc mặc định
-                alt="User Avatar"
+                // alt="User Avatar"
                 style={{ width: "40px", height: "40px", borderRadius: "50%" }}
               />
               <button className="btn btn-danger ms-3" onClick={handleLogout}>

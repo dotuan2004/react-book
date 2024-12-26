@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 import SachModel from "../../../models/SachModel";
 import { laySachTheoMaSach } from "../../../api/SachApi";
 import { error } from "console";
@@ -31,9 +31,9 @@ const ChiTietSanPham: React.FC = () => {
                     setBaoLoi(error.message);
                     setDangTaiDuLieu(false);
                 });
-             // You can handle this response as needed
+            // You can handle this response as needed
         }
-    }, [maSachNumber]);
+    }, []);
     console.log(sach)
     if (dangTaiDuLieu) {
         return (
@@ -90,10 +90,14 @@ const ChiTietSanPham: React.FC = () => {
                                 </li>
                             </ul>
 
-                            {/* Nút mua hoặc thêm vào giỏ */}
+                            
                             <div className="mt-3 d-flex justify-content-between">
-                                <button className="btn btn-primary">Mua ngay</button>
-                                <button className="btn btn-secondary">Thêm vào giỏ hàng</button>
+                                <NavLink to="/mua-ngay" className="btn btn-primary">
+                                    Mua ngay
+                                </NavLink>
+                                <NavLink to="/gio-hang" className="btn btn-secondary">
+                                    Thêm vào giỏ hàng
+                                </NavLink>
                             </div>
                         </div>
                     </div>
@@ -101,7 +105,7 @@ const ChiTietSanPham: React.FC = () => {
 
             </div>
             <div>
-                <DanhGia/>   
+                <DanhGia />
             </div>
         </div>
     );

@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from "react";
-
-
-
 import { layToanBoAnhCuaMotSach } from "../../../api/HinhAnhApi";
 import HinhAnhModel from "../../../models/HinhAnhModel";
 import { Carousel } from "react-responsive-carousel";
@@ -18,17 +15,31 @@ const HinhAnhSanPham: React.FC<HinhAnhSanPham> = (props) => {
     const [baoloi, setBaoloi] = useState<string | null>(null);
 
     useEffect(() => {
-        layToanBoAnhCuaMotSach(maSach)
-            .then((hinhAnhData) => {
-                console.log(hinhAnhData); // Kiểm tra dữ liệu trả về
-                setDanhSachAnh(hinhAnhData);
-                setDangTaiDuLieu(false);
-            })
-            .catch((error) => {
-                setDangTaiDuLieu(false);
-                setBaoloi(error.message); // Access the error message correctly
-            });
-    }, [maSach]); // Adding maSach as a dependency so the effect runs when it changes
+        // Kiểm tra nếu maSach hợp lệ và đang tải dữ liệu
+        if (maSach && dangTaiDuLieu) {
+            layToanBoAnhCuaMotSach(maSach)
+                .then((hinhAnhData) => {
+                    console.log("Dữ liệu hình ảnh trả về:", hinhAnhData);
+
+                    // Kiểm tra xem danh sách ảnh có thay đổi không
+                    // Nếu thay đổi, cập nhật lại danh sách ảnh
+                    if (hinhAnhData.length !== danhSachAnh.length ||
+                        hinhAnhData.some((item, index) => item.maHinhAnh !== danhSachAnh[index]?.maHinhAnh ||
+                            item.tenHinhAnh !== danhSachAnh[index]?.tenHinhAnh)) {
+                        setDanhSachAnh(hinhAnhData);
+                    }
+
+                    // Đặt trạng thái đang tải dữ liệu là false sau khi dữ liệu được lấy
+                    setDangTaiDuLieu(false);
+                })
+                .catch((error) => {
+                    setDangTaiDuLieu(false);
+                    setBaoloi(error.message);
+                });
+        }
+    }, [maSach]);
+
+
 
     if (dangTaiDuLieu) {
         return (

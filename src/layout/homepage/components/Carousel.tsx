@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { layToanBaSachMoiNhat } from "../../../api/SachApi";
+
 import SachModel from "../../../models/SachModel";
 import CaroselItem from "./CaroselItem";
+import { layToanBoSachMoiNhat } from "../../../api/SachApi";
 
 const Carousel: React.FC = () => { 
     const[danhSachQuyenSach,setDanhSachQuyenSach] =useState<SachModel[]>([]);
@@ -9,11 +10,12 @@ const Carousel: React.FC = () => {
     const[baoloi,setBaoloi] =useState(null);
 
     useEffect(()=>{
-        layToanBaSachMoiNhat().then(
+        layToanBoSachMoiNhat().then(
             kq=>{
             setDanhSachQuyenSach(kq.KetQua);
             setDangTaiDuLieu(false);
         }
+    
 
         ).catch(
 
