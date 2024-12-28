@@ -18,8 +18,7 @@ export async function layAnhCua1Sach(duongDan:string):Promise<HinhAnhModel[]> {
             laIcon: responseData[Key].icon,
             duongDan: responseData[Key].link,
             dulieuanh: responseData[Key].imageData,
-
-            
+ 
         });
     }
     return KetQua;
