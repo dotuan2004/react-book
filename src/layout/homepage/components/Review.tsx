@@ -4,11 +4,11 @@ import { Stomp } from "@stomp/stompjs";
 import { useParams } from "react-router-dom";
 import { layReviewSachByMa } from "../../../api/SachApi";
 import Review from "../../../models/Review";
+import { jwtDecode } from "jwt-decode";
 
 const DanhGia: React.FC = () => {
   const { maSach } = useParams();
   const bookId = maSach ? parseInt(maSach) : null; // Đảm bảo bookId hợp lệ
-
   const [reviews, setReviews] = useState<Review[]>([]);
   const [newReview, setNewReview] = useState<Review>({
     username: '',
@@ -18,6 +18,12 @@ const DanhGia: React.FC = () => {
   const [stompClient, setStompClient] = useState<any>(null);
 
   useEffect(() => {
+    const jwt = localStorage.getItem("token");
+    if (jwt) {
+      const decodedToken: any = jwtDecode(jwt);
+      const username = decodedToken.sub;
+      setNewReview({ ...newReview, username})
+    }
     if (bookId === null) return; // Nếu không có bookId, không thực hiện kết nối WebSocket.
 
     const socket = new SockJS('http://localhost:8000/ws');
@@ -46,14 +52,14 @@ const DanhGia: React.FC = () => {
         console.log("review data", reviewData);
         console.log("book id data", bookId);
         if (reviewData && reviewData.KetquaReview) {
-            // Trích xuất KetquaReview và cập nhật mảng reviews
-            setReviews((prevReviews) => [...prevReviews, ...reviewData.KetquaReview]);
+          // Trích xuất KetquaReview và cập nhật mảng reviews
+          setReviews((prevReviews) => [...prevReviews, ...reviewData.KetquaReview]);
         }
       })
       .catch((error) => {
         console.error(error);
       });
-}, [bookId]);
+  }, [bookId]);
 
 
   const submitReview = async () => {
@@ -91,15 +97,6 @@ const DanhGia: React.FC = () => {
           </li>
         ))}
       </ul>
-      <div className="input-group">
-        <input
-          type="text"
-          placeholder="Tên của bạn"
-          value={newReview.username}
-          onChange={(e) => setNewReview({ ...newReview, username: e.target.value })}
-          className="input-field"
-        />
-      </div>
       <div className="input-group">
         <input
           type="number"

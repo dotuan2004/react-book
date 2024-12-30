@@ -15,6 +15,7 @@ import SachForm_Admin from './layout/admin/SachForm';
 import ReviewComponent from './layout/homepage/components/Review';
 import Review from './layout/homepage/components/Review';
 import Cart from './layout/homepage/product/GioHang';
+import AdminBookManagement from './layout/admin/AdminBookManagement';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
             <Route path="/admin/them-sach" element={<SachForm_Admin />} />
             <Route path="/danhgia/:maSach" element={<Review />} />
             <Route path="/hello" element={<Cart/>} />
+            <Route path="/admin" element={<AdminBookManagement/>} />
             
           </Routes>
           <Footer />

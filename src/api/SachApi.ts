@@ -52,6 +52,10 @@ export async function layToanBoSach(trangHienTai: number): Promise<KetQuaInterfa
     const duongDan = `http://localhost:8000/book?sort=bookId,desc&size=8&page=${trangHienTai}`;
     return laySach(duongDan);
 }
+export async function layToanBoSachAdmin(): Promise<KetQuaInterface> {
+    const duongDan = `http://localhost:8000/book`;
+    return laySach(duongDan);
+}
 
 export async function layToanBoSachMoiNhat(): Promise<KetQuaInterface> {
     const duongDan = 'http://localhost:8000/book?sort=bookId,desc&page=0&size=3';
@@ -98,7 +102,7 @@ export async function laySachTheoMaSach(maSach: number): Promise<SachModel | nul
 }
 
 export async function layReviewSachByMa(maSach: number): Promise<ReviewInterface | null> {
-    const duongDan = `http://localhost:8000/su-danh-gia/search/findByBook_BookId?maSach=${maSach}`;
+    const duongDan = `http://localhost:8000/api/reviews/book/${maSach}`;
     try {
         const response = await fetch(duongDan);
 
@@ -107,11 +111,11 @@ export async function layReviewSachByMa(maSach: number): Promise<ReviewInterface
         }
 
         const responseData = await response.json();
-        const reviewData = responseData._embedded?.reviews || [];
+    
 
-        console.log("API data", reviewData);
+        console.log("API data", responseData);
 
-        const KetquaReview: Review[] = reviewData.map((review: any) => {
+        const KetquaReview: Review[] = responseData.map((review: any) => {
             return new Review(
                 review.username,
                 review.content,
