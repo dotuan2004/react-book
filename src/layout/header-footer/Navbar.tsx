@@ -123,13 +123,13 @@ function Navbar({ tuKhoaTimKiem, setTuKhoaTimKiem }: NavbarProps) {
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown1">
                 <li>
-                  <NavLink className="dropdown-item" to="/1">
-                    1
+                  <NavLink className="dropdown-item" to="/admin">
+                    quản lý sách                    
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="dropdown-item" to="/2">
-                    2
+                    quan lý người dùng
                   </NavLink>
                 </li>
                 <li>

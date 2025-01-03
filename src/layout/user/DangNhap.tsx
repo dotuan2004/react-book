@@ -3,12 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
 import { jwtDecode } from "jwt-decode";
 
-
 function DangNhap() {
   const { setIsLoggedIn } = useContext(AuthContext)!;
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState(""); 
   const navigate = useNavigate();
 
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {

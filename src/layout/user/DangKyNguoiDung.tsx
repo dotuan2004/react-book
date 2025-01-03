@@ -85,13 +85,12 @@ export function DangKyNguoiDung() {
             });
         };
         
-
         const base64Avatar = hinhAnh ? await getBase64(hinhAnh) : null
         try {
             console.log({
                 tenDangNhap: tenDangNhap,
                 email: email,
-                soDienThoai: soDienThoai,
+                soDienThoai: soDienThoai,   
                 matKhau: matKhau,
                 avatar: base64Avatar
             });

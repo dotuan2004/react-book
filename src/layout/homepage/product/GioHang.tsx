@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { layCartByUser } from "../../../api/SachApi";
 import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 
 interface JwtPayload {
@@ -17,6 +18,7 @@ interface CartItem {
 }
 
 const Cart: React.FC = () => {
+  const navigate = useNavigate();
   const [danhSachQuyenSach, setDanhSachQuyenSach] = useState<CartItem[]>([]);
   const [dangTaiDuLieu, setDangTaiDuLieu] = useState<boolean>(true);
   const [userId, setUserId] = useState<string>("");
@@ -180,6 +182,22 @@ const Cart: React.FC = () => {
                   .toLocaleString()}
                 ₫
               </p>
+
+              {/* Nút Thanh toán */}
+              <button
+                onClick={() => navigate("/thanh-toan")}
+                style={{
+                  backgroundColor: "#28a745",
+                  color: "white",
+                  padding: "12px 20px",
+                  border: "none",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                  marginTop: "10px",
+                }}
+              >
+                Thanh toán
+              </button>
             </div>
           </>
         )}

@@ -16,6 +16,7 @@ import ReviewComponent from './layout/homepage/components/Review';
 import Review from './layout/homepage/components/Review';
 import Cart from './layout/homepage/product/GioHang';
 import AdminBookManagement from './layout/admin/AdminBookManagement';
+import ThanhToan from './layout/homepage/product/ThanhToan';
 
 
 function App() {
@@ -37,7 +38,8 @@ function App() {
             <Route path="/chat" element={<Chat />} />
             <Route path="/admin/them-sach" element={<SachForm_Admin />} />
             <Route path="/danhgia/:maSach" element={<Review />} />
-            <Route path="/hello" element={<Cart/>} />
+            <Route path="/giohang" element={<Cart/>} />
+            <Route path="/thanhtoan" element={<ThanhToan/>} />
             <Route path="/admin" element={<AdminBookManagement/>} />
             
           </Routes>
